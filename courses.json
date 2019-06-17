@@ -1,0 +1,32 @@
+[
+  {
+    "course": "Learning Testing API by rishabh bhaiya",
+    "description": "He is a student of NGO",
+    "id": 1
+  },
+  {
+    "course": "Learning web scraping by rishabh bhaiya",
+    "description": "He is a student of NGO",
+    "id": 2
+  },
+  {
+    "course": "Learning requests by rishabh bhaiya",
+    "description": "He is a student of NGO",
+    "id": 3
+  },
+  {
+    "course": "json data...........",
+    "description": "Iss mein hum json ke baare mein padhenge",
+    "id": 4
+  },
+  {
+    "course": "Android",
+    "description": "Iss mein hum json ke baare mein padhenge",
+    "id": 5
+  },
+  {
+    "course": "learn about flask",
+    "description": "Iss mein hum flask courses ke baare mein padhenge",
+    "id": 6
+  }
+]
