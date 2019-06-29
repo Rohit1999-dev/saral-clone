@@ -8,6 +8,6 @@ In this project i have uses of these methods---GET, POST, PUT
 
 if you have uses of # linux based system just Run the following command  to install pakages and the modues
 
-  >> sudo apt-get install npm
-  >> npm install express --save
+  >> sudo apt-get install npm<br>
+  >> npm install express --save<br>
   >> npm install fs --save
