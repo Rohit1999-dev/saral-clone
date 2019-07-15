@@ -27,13 +27,6 @@ app.post("/allcourse", (req,res)=>{
 	return res.send(Data);
 })
 
-// app.get("/get_course/:id", (req,res)=>{
-// 	var data = fs.readFileSync(__dirname+"/courses.json");
-// 	var Data = JSON.parse(data);
-// 	var get_details = Data[req.params.id-1];
-// 	return res.send(get_details);
-
-// })
 					// Here we can modify or update the Data of courses json
 app.put("/update_course/:id", (req, res)=>{
 	// console.log(__dirname + "/courses.json")
@@ -58,17 +51,6 @@ app.put("/update_course/:id", (req, res)=>{
 		}
 	})
 })
-
-
-
-
-// app.get("/find_course/:id", (req, res)=>{
-// 	var data = fs.readFileSync(__dirname+"/courses.json");
-// 	var Data = JSON.parse(data);
-// 	var get_update = Data[req.params.id-1];
-// 	return res.send(get_update);
-// })
-
 
 				// Here we get all data from exercises json files.
 app.get("/allCourses", (req, res)=>{
