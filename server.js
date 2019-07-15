@@ -7,13 +7,14 @@ const app = express();
 
 app.use(express.json())
 
+			// Here we get all data from courses json files.			
 app.get("/course", (req, res)=>{
 	var data = fs.readFileSync('courses.json')
 	var get_data = JSON.parse(data)
 	return res.send(get_data);
 })
-
-app.post("/allcourse", (req,res)=>{
+				// here we post the data it means insert data in courses.json
+app.post("/allcourse", (req,res)=>{		
 	var mydic = {
 		"course":req.body.course,
 		"description":req.body.description
@@ -33,7 +34,7 @@ app.post("/allcourse", (req,res)=>{
 // 	return res.send(get_details);
 
 // })
-
+					// Here we can modify or update the Data of courses json
 app.put("/update_course/:id", (req, res)=>{
 	// console.log(__dirname + "/courses.json")
 	var data = fs.readFile(__dirname + "/courses.json", (err, data)=>{
@@ -69,13 +70,13 @@ app.put("/update_course/:id", (req, res)=>{
 // })
 
 
-
+				// Here we get all data from exercises json files.
 app.get("/allCourses", (req, res)=>{
     var data = fs.readFileSync('exercises.json')
     var Data = JSON.parse(data)
     return res.send(Data)
 })
-
+				// Here we insert new data with their exercises's key in exercises json files.
 app.post('/postCourses',(req,res)=>{
 	var mydic={
 		"course":req.body.course,
@@ -89,7 +90,7 @@ app.post('/postCourses',(req,res)=>{
 	fs.writeFileSync(__dirname + '/exercises.json',(JSON.stringify(Data,null,2)))
 	return res.send(Data)
 })
-
+				// Here we get data through their Id from exercises json files.			
 app.get("/get_course/:id",(req, res)=>{
 	var data = fs.readFileSync(__dirname+"/exercises.json");
 	var Data = JSON.parse(data);
@@ -101,7 +102,7 @@ app.get("/get_course/:id",(req, res)=>{
 	}
 	return res.send(mydic)
 })
-
+				// Here we can modify exercises's json files of their courses and description.
 app.put('/course/:id',(req,res)=>{
 	var course = req.body.course;
 	var description = req.body.description;
@@ -115,7 +116,7 @@ app.put('/course/:id',(req,res)=>{
 	return res.send(Data)
 
 })
-
+					// Here we can insert new submission key of data.
 app.post('/postCourses/:id',(req, res)=>{
 	var id1=req.params.id;
 	var sdata=req.body;
@@ -135,7 +136,7 @@ app.post('/postCourses/:id',(req, res)=>{
 
 })
 
-
+						// Here we can get all exercises accoording to courses Id
 app.get('/courses/:id/allexercises', (req,res)=>{
 	var data = fs.readFileSync("exercises.json");
 	var Data_ = JSON.parse(data)
@@ -144,7 +145,7 @@ app.get('/courses/:id/allexercises', (req,res)=>{
 	
 });
 	
-
+						// Here we can insert data in exercises according to their courses Id
 app.post('/courses/:id/allexercises',(req, res)=>{
 	fs.readFile(__dirname + "/exercises.json", (err, data)=>{
 		if (err){
@@ -168,7 +169,7 @@ app.post('/courses/:id/allexercises',(req, res)=>{
 	})
 })	
 
-
+						// Here we can do modify data according to exercises's Id of courses's Id.
 app.put('/course/:id/exercise/:exerid',(req,res)=>{
 	var data = fs.readFileSync('exercises.json')
 	var Data = JSON.parse(data)
@@ -179,7 +180,7 @@ app.put('/course/:id/exercise/:exerid',(req,res)=>{
 	fs.writeFileSync('exercises.json',(JSON.stringify(Data,null,2)))
 	return res.send(Data)
 })
-
+						// Here we get exercises data throigh their Id from courses Id.
 app.get("/course/:id/exercises/:Id",(req,res)=>{
 	var dicData = fs.readFileSync("exercises.json");
 	var dicDatas = JSON.parse(dicData);
@@ -191,6 +192,7 @@ app.get("/course/:id/exercises/:Id",(req,res)=>{
 			}
 		}
 })
+							// Here we insert submission data in exercise.
 app.post("/course/:id/exercises/:Id/submission",(req, res)=>{
 	var submission = {
 		courses_id:req.params.id,
